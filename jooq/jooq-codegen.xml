@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.18.0.xsd">
+    <jdbc>
+        <driver>org.h2.Driver</driver>
+        <url>${DB_JDBC_URL}</url>
+        <user>${DB_USER}</user>
+        <password>${DB_PASSWORD}</password>
+    </jdbc>
+
+    <generator>
+        <name>org.jooq.codegen.ScalaGenerator</name>
+
+        <database>
+            <includeTables>true</includeTables>
+            <includePrimaryKeys>true</includePrimaryKeys>
+            <includeUniqueKeys>true</includeUniqueKeys>
+
+            <includeSystemTables>false</includeSystemTables>
+            <includeInvisibleColumns>false</includeInvisibleColumns>
+            <includeEmbeddables>false</includeEmbeddables>
+            <includeRoutines>false</includeRoutines>
+            <includePackages>false</includePackages>
+            <includePackageRoutines>false</includePackageRoutines>
+            <includePackageUDTs>false</includePackageUDTs>
+            <includePackageConstants>false</includePackageConstants>
+            <includeUDTs>false</includeUDTs>
+            <includeDomains>false</includeDomains>
+            <includeSequences>false</includeSequences>
+            <includeSystemSequences>false</includeSystemSequences>
+
+            <schemata>
+                <schema>
+                    <inputSchema>PUBLIC</inputSchema>
+                    <outputSchemaToDefault>true</outputSchemaToDefault>
+                </schema>
+            </schemata>
+
+            <excludes>
+                flyway_schema_history
+            </excludes>
+        </database>
+
+
+        <target>
+            <packageName>generated.jooq</packageName>
+            <directory>src/main/scala</directory>
+        </target>
+    </generator>
+</configuration>
